@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GameCanvas } from './components/GameCanvas';
 import { MainMenu } from './components/MainMenu';
+import { GameMode } from './types';
 
 enum AppState {
   MENU = 'MENU',
@@ -11,14 +12,16 @@ enum AppState {
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.MENU);
   const [selectedCharacter, setSelectedCharacter] = useState<string>('neon-ninja');
-  const [gameResult, setGameResult] = useState<'VICTORY' | 'DEFEAT'>('VICTORY');
+  const [selectedMode, setSelectedMode] = useState<GameMode>('GEM_GRAB');
+  const [gameResult, setGameResult] = useState<'VICTORY' | 'DEFEAT' | 'DRAW'>('VICTORY');
 
-  const handleStartGame = (charId: string) => {
+  const handleStartGame = (charId: string, mode: GameMode) => {
     setSelectedCharacter(charId);
+    setSelectedMode(mode);
     setAppState(AppState.GAME);
   };
 
-  const handleGameOver = (result: 'VICTORY' | 'DEFEAT') => {
+  const handleGameOver = (result: 'VICTORY' | 'DEFEAT' | 'DRAW') => {
     setGameResult(result);
     setAppState(AppState.RESULT);
   };
@@ -36,6 +39,7 @@ const App: React.FC = () => {
       {appState === AppState.GAME && (
         <GameCanvas 
             selectedCharacterId={selectedCharacter} 
+            gameMode={selectedMode}
             onGameOver={handleGameOver} 
             onBack={handleBackToMenu}
         />
@@ -43,7 +47,7 @@ const App: React.FC = () => {
 
       {appState === AppState.RESULT && (
         <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-lg">
-           <h1 className={`text-6xl md:text-9xl font-black italic tracking-tighter mb-8 ${gameResult === 'VICTORY' ? 'text-cyber-neonYellow drop-shadow-[0_0_30px_rgba(252,238,10,0.6)]' : 'text-red-600 drop-shadow-[0_0_30px_rgba(220,20,60,0.6)]'}`}>
+           <h1 className={`text-6xl md:text-9xl font-black italic tracking-tighter mb-8 ${gameResult === 'VICTORY' ? 'text-cyber-neonYellow drop-shadow-[0_0_30px_rgba(252,238,10,0.6)]' : gameResult === 'DEFEAT' ? 'text-red-600 drop-shadow-[0_0_30px_rgba(220,20,60,0.6)]' : 'text-white'}`}>
                {gameResult}
            </h1>
            
