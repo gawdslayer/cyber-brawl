@@ -21,6 +21,7 @@ export const BALL_THROW_SPEED = 22;
 export const BALL_PICKUP_COOLDOWN = 30;
 
 // Characters
+// Palette: Ghibli-esque saturated pastels mixed with Neon
 export const CHARACTERS: CharacterStats[] = [
   {
     id: 'neon-ninja',
@@ -36,7 +37,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 20,
     projectileCount: 1,
     spread: 0,
-    color: '#00f3ff',
+    color: '#00E0E0', // Turquoise
     description: 'Agile fighter. Super: Dashes forward, slashing enemies.',
     superChargeRate: 25,
     superType: 'DASH'
@@ -55,7 +56,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 12,
     projectileCount: 5,
     spread: 0.4, // Shotgun spread
-    color: '#ff00ff',
+    color: '#D81B60', // Deep Pink/Magenta
     description: 'Heavy shotgunner. Super: Ground Slam stuns enemies.',
     superChargeRate: 15,
     superType: 'SLAM'
@@ -74,7 +75,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 15,
     projectileCount: 1,
     spread: 0,
-    color: '#fcee0a',
+    color: '#FFD700', // Gold/Hazard Yellow
     description: 'Sniper. Super: Fires a massive explosive rocket.',
     superChargeRate: 35,
     superType: 'GRENADE'
@@ -93,7 +94,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 25,
     projectileCount: 1,
     spread: 0.1,
-    color: '#00ff99',
+    color: '#00FA9A', // Spring Green
     description: 'Erratic attacks. Super: Teleports a short distance.',
     superChargeRate: 25,
     superType: 'TELEPORT'
@@ -112,7 +113,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 28,
     projectileCount: 1,
     spread: 0.25,
-    color: '#ff4500',
+    color: '#FF4500', // Orange Red
     description: 'Flamethrower. Super: Rapid Fire burst.',
     superChargeRate: 5,
     superType: 'RAPID_FIRE'
@@ -131,7 +132,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 15,
     projectileCount: 1,
     spread: 0,
-    color: '#ffffff',
+    color: '#E0FFFF', // Light Cyan / White
     description: 'Healer. Super: Creates a healing area.',
     superChargeRate: 20,
     superType: 'HEAL_AREA'
@@ -150,7 +151,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 60,
     projectileCount: 1,
     spread: 0,
-    color: '#8b0000',
+    color: '#8B0000', // Dark Red
     description: 'Melee brawler. Super: Dash punch.',
     superChargeRate: 25,
     superType: 'DASH'
@@ -169,7 +170,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 10,
     projectileCount: 1,
     spread: 0,
-    color: '#4b0082',
+    color: '#483D8B', // Dark Slate Blue
     description: 'Assassin. Super: Becomes invisible briefly.',
     superChargeRate: 30,
     superType: 'STEALTH'
@@ -188,7 +189,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 18,
     projectileCount: 2, // Throws 2 bombs
     spread: 0.2,
-    color: '#ff69b4',
+    color: '#FF1493', // Deep Pink
     description: 'Sonic attacks. Super: Giant Shockwave slam.',
     superChargeRate: 20,
     superType: 'SLAM'
@@ -207,7 +208,7 @@ export const CHARACTERS: CharacterStats[] = [
     projectileSize: 12,
     projectileCount: 1,
     spread: 0,
-    color: '#daa520',
+    color: '#DAA520', // Goldenrod
     description: 'Builder. Super: Creates a temporary wall.',
     superChargeRate: 20,
     superType: 'WALL'

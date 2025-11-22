@@ -1,3 +1,4 @@
+
 export enum GameState {
   MENU = 'MENU',
   PLAYING = 'PLAYING',
@@ -16,6 +17,19 @@ export type SuperType = 'DASH' | 'SHIELD' | 'GRENADE' | 'TELEPORT' | 'RAPID_FIRE
 export interface Vector2 {
   x: number;
   y: number;
+}
+
+export interface VisualEffect {
+  id: string;
+  type: 'SHOCKWAVE' | 'BURST' | 'RING' | 'SMOKE' | 'SPARK' | 'GLOW';
+  x: number;
+  y: number;
+  vx?: number;
+  vy?: number;
+  color: string;
+  life: number;
+  maxLife: number;
+  size: number;
 }
 
 export interface CharacterStats {
@@ -63,6 +77,9 @@ export interface PlayerEntity extends Entity {
   targetId?: string | null; // For AI
   dashFrames?: number; // For Dash Super
   dashVector?: {x: number, y: number};
+  lastAttackTime: number;
+  lastSuperTime: number;
+  hitFlashTimer: number; // Frames to flash white when hit
 }
 
 export interface Projectile extends Entity {
@@ -102,6 +119,7 @@ export interface GameWorld {
   gems: Gem[];
   ball?: BallEntity;
   obstacles: Obstacle[];
+  effects: VisualEffect[];
   gemSpawnerTimer: number;
   scoreBlue: number;
   scoreRed: number;
